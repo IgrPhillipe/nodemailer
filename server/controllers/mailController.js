@@ -5,8 +5,6 @@ const sendMail = async (req, res, next) => {
   try {
     const { name, email, phone, reason, message } = req.body;
 
-    console.log(name)
-
     const body = `
     Nome: ${name}
     Email: ${email}
