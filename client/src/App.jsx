@@ -33,7 +33,7 @@ function App() {
           <h3>Formulário de Contato</h3>
         </div>
 
-        <form className="Form">
+        <form className="Form" onSubmit={sendEmail}>
           <label>Nome:</label>
           <input
             type="text"
@@ -76,7 +76,7 @@ function App() {
             onChange={(e) => setMessage(e.target.value)}
           />
 
-          <button type='button' onClick={sendEmail}>Enviar</button>
+          <button type='submit'>Enviar</button>
 
         </form>
       </div>
