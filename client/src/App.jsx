@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import api from './services/api';
 
 import './styles.css';
 
@@ -19,9 +20,10 @@ function App() {
   const sendEmail = async () => {
     try {
       await axios.post('http://localhost:3001/contact', data)
-
+      alert("Email enviado com sucesso");
     } catch (error) {
-      alert(error)
+      alert("Houve um erro. Tente novamente.")
+      console.log(error);
     }
   }
 
@@ -32,7 +34,7 @@ function App() {
           <h3>Formulário de Contato</h3>
         </div>
 
-        <form className="Form" onSubmit={sendEmail}>
+        <form className="Form">
           <label>Nome:</label>
           <input
             type="text"
@@ -75,7 +77,7 @@ function App() {
             onChange={(e) => setMessage(e.target.value)}
           />
 
-          <button type="submit">Enviar</button>
+          <button type='button' onClick={sendEmail}>Enviar</button>
 
         </form>
       </div>
